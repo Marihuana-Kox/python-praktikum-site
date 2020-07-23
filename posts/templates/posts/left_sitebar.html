@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+{% load thumbnail %}
+{% block title %} {{ post.title }} {% endblock %}
+{% block content %}
+{% load static %}
+<!-- Main -->
+<div id="main" class="wrapper style1">
+    <div class="container">
+        <header class="major">
+            <h2>{{ post.title }} </h2>
+            <p>{{ post.text|truncatechars:50 }}</p>
+        </header>
+        <div class="row 150%">
+            <div class="4u 12u$(medium)">
+
+                <!-- Sidebar -->
+                    <section id="sidebar">
+                        <section>
+                            <h3>{{ author.first_name }}
+                                {{ author.last_name }}</h3>
+                                <h4>@{{ author.username }}</h4>
+                              <ul>
+                                  <li>Подписчиков: {{ count_author }}</li>
+                                  <li> Подписан: {{ count_user }}</li>
+                                  <li> Записей: {{ count }}</li>
+                              </ul>  
+                            <p>Sed tristique purus vitae volutpat commodo suscipit amet sed nibh. Proin a ullamcorper sed blandit. Sed tristique purus vitae volutpat commodo suscipit ullamcorper commodo suscipit amet sed nibh. Proin a ullamcorper sed blandit..</p>
+                            <footer>
+                                <ul class="actions">
+                                    <li>
+                                    {% if user.is_authenticated and request.user != author %}
+                                    {% if following %}
+                                    <a class="btn btn-lg btn-light button"
+                                            href="{% url 'profile_unfollow' author.username %}"
+                                            role="button">
+                                            Отписаться
+                                    </a>
+                                    {% else %}
+                                    <a class="btn btn-lg btn-primary button"
+                                            href="{% url 'profile_follow' author.username %}" role="button">
+                                            Подписаться
+                                    </a>
+                                    {% endif %}
+                                    {% endif %}
+                                    </li>
+                                </ul>
+                            </footer>
+                        </section>
+                        <hr />
+                    </section>
+
+            </div>
+            <div class="8u$ 12u$(medium) important(medium)">
+
+                <!-- Content -->
+                    <section id="content">
+                        <a href="#" class="image fit"><img src="{% static 'images/pic05.jpg' %}" alt="" /></a>
+                        <h3>{{ post.title }} </h3>
+                        <p>{{ post.text|linebreaksbr }}</p>
+                        <ul>
+                            {% if post.group.slug %}
+                            <li><span><a href="{% url 'group' post.group.slug %}">#{{ post.group }}</a></span></li>
+                            {% else %}
+                            <li><span><a href="/">#Нет группы</a></span></li>
+                            {% endif %}
+                            <li>{{ post.pub_date }}<br/>Комментариев: {{ comments_count }}</li>
+                        </ul>
+                        <div style="clear: both;"></div>
+                    </section>
+
+                    {% include 'posts/comments.html' %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

@@ -1,0 +1,30 @@
+{% load static %}
+<div id="main" class="wrapper style1">
+    <div class="container">
+        <header class="major">
+            <h2>{{ post.title }}</h2>
+            <p>{{ post.text|truncatechars:80 }}</p>
+        </header>
+        <!-- Content -->
+            <section id="content">
+                {% load thumbnail %}
+                {% thumbnail post.image "1024x339" crop="center" upscale=True as im %}
+                <a href="#" class="image fit"><img src="{{ im.url }}" alt="" /></a>
+                {% endthumbnail %}
+                
+                <h3>@{{ post.author }}</h3>
+                <p>{{ post.text|truncatechars:500 }}<strong><a href="{% url 'post_detail' post.author post.id %}"> читать дальше...</a></strong></p>
+                <ul>{% if post.group.slug %}
+                    <li><span><a href="{% url 'group' post.group.slug %}">#{{ post.group }}</a></span></li>
+                    {% else %}
+                    <li><span><a href="/">#Нет группы</a></span></li>
+                    {% endif %}
+                    {% if request.user == post.author %}
+                    <li><b><a href="{% url 'post_edit' post.author post.pk %}">редактировать</a></b></li>
+                    {% endif %}
+                    <li>{{ post.pub_date }}</li>
+                </ul>
+            </section>
+
+    </div>
+</div>

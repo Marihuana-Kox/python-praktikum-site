@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% load thumbnail %}
+{% block content %}
+
+{% for post in page %}
+<!-- Вот он, новый include! -->
+{% include "posts/posts_items.html" with post=post %}
+{% endfor %}
+
+{% if page.has_other_pages %}
+{% include "posts/paginator.html" with items=page paginator=paginator %}
+{% endif %}
+
+{% endblock %}

@@ -1,0 +1,42 @@
+<!-- Header -->
+<header id="header">
+    <h1 id="logo"><a class="navbar-brand" href="/"><span style="color:red">Ya</span>tube</a></h1>
+    <nav id="nav">
+        <ul>
+            <li><a href="{% url 'index' %}">Home</a></li>
+            {% if user.is_authenticated %}
+            {% if user.first_name %}
+                <li><a href="{% url 'profile' user.username %}">{{ user.first_name }}</a>
+                    <ul>
+                        <li>
+                            <a class="nav-link {% if posts %}active{% endif %}" href="{% url 'posts' %}">Все авторы</a>
+                        </li>
+                        <li>
+                            <a class="nav-link {% if follows %}active{% endif %}" href="/follow">Избранные авторы</a>
+                        </li>
+                    </ul>
+                </li>
+            {% else %}    
+                <li><a href="{% url 'profile' user.username %}">«@{{ user.username }}»</a>
+                    <ul>
+                        <li>
+                            <a class="nav-link {% if posts %}active{% endif %}" href="{% url 'posts' %}">Все авторы</a>
+                        </li>
+                        <li>
+                            <a class="nav-link {% if follows %}active{% endif %}" href="/follow">Избранные авторы</a>
+                        </li>
+                    </ul>
+                </li>
+                <li><a href="{% url 'posts' %}">Статьи</a></li>
+            {% endif %}    
+                <li><a href="{% url 'new_post' %}">Новая запись</a></li>
+                <li><a href="{% url 'password_change' %}">Изменить пароль</a></li>
+                <li><a href="{% url 'logout' %}">Выйти</a></li>
+            {% else %}
+                <li><a href="{% url 'posts' %}">Статьи</a></li>
+                <li><a href="{% url 'login' %}" class="button special">Войти</a></li>
+                <li><a href="{% url 'signup' %}" class="button special">Регистрация</a></li>
+            {% endif %}
+        </ul>
+    </nav>
+</header>
