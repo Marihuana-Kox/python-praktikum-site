@@ -1,0 +1,153 @@
+/* body {
+    background:rgb(52, 58, 59);
+    color: grey;
+}
+h1, h2, h3, h5 {
+    margin: 40px auto;
+    color: rgb(160, 209, 252);
+}
+p {
+    color: rgb(85, 66, 44);
+    font-size: 1.2em;
+}
+.navbar-light {
+    background: #c78c47;
+}
+.shadow-sm {
+    background: #282626;
+    color: rgb(176, 176, 172);
+}
+.border-top > .text-center {
+    color: whitesmoke!important;
+}
+.red-text {
+    color: red!important;
+}
+.card, 
+.card-left-vidget {
+    color: #c78c47;
+    box-shadow: 0 0 10px black;
+    background-color: #262222;
+}
+.card-text p{
+    color: grey;
+}
+.list-group-item a{
+    display: block;
+}
+.list-group-flush .list-group-item {
+    background: border-box;
+}
+.card-body p {
+    width: 100%;
+    margin: auto;
+}
+form {
+    width: 100%;
+}
+textarea {
+    width: 100%;     
+    margin: 5px auto;
+    padding: 8px;
+}
+body>form {
+    margin-top: 100px;
+    color: indigo;
+}
+label {
+    display: block;
+}
+input {
+    /* width: 200px; */
+    /* height: 35px;
+    background: #b0e6dc;
+}
+[type='submit'] {
+    color: rgb(7, 22, 129);
+    font-weight: 600;
+    margin-top: 20px;
+    padding: 5px 10px;
+    height: 40px;
+}
+[type='datetime'] {
+    width: 230px;
+    height: 35px;
+}
+[type='file'] {
+    width: auto;
+}
+.pagination-block {
+    position: relative;
+    left: 30%;
+}
+.media 
+.media-body {
+    background: beige;
+    padding: 15px;
+    border-radius: 10px;
+    font-size: .8em;
+}
+.media 
+.media-body h5 {
+    margin: 0;
+} */ 
+/* New style */
+.card {
+    background-color: #1c1d26;
+}
+.card textarea {
+    background-color: #353747;
+}
+.card textarea:focus {
+    background-color: #707493;
+    color: white;
+}
+a:hover {
+    text-decoration: none;
+}
+strong a {
+    text-decoration: none;
+    border-bottom: none;
+    color: unset;
+}
+strong a:hover {
+    color: wheat!important;
+}
+.pagination-block nav 
+.pagination {
+    margin-top: 0;
+    margin-left: auto;
+    margin-right: auto;
+}
+.page-item.disabled .page-link, 
+.page-link {
+    background-color: rgb(28, 29, 38);
+}
+.page-link:hover {
+    background-color: rgb(68, 70, 88);
+}
+.media-body {
+    border-radius: 20px;
+    border: 1px solid gray;
+    padding: 20px;
+}
+.media-body strong {
+    font-size: .7em;
+    float: right;
+}
+span a {
+    color: #d7b0b6;
+    border-bottom: none;
+}
+#content ul {
+    margin: 0;
+    padding-left: 0;
+}
+#content ul li{
+    display: inline-block; 
+    padding-left: 0;
+}
+#content ul li:last-child {
+    float: right;
+    margin-bottom: 40px;
+}
